@@ -1,40 +1,34 @@
 package com.bootdo.gamedata.domain;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * 游戏广告位
+ */
+@Entity
+@Table(name = "gm_adv")
 @Getter
 @Setter
-@Entity
-@Table(name = "gm_user")
-public class GameUserDO implements Serializable {
-
+public class GameAdvDO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
-
-    @Column(name = "openId")
-    private String openId;
-
-    @Column(name = "user_name")
-    private String userName;
-
-    @Column(name = "gender")
-    private Integer gender;
-
-    @Column(name = "avatar_url")
-    private String avatarUrl;
-
+    @Column(name = "adv_name")
+    private String advName;
+    @Column(name = "pic_url")
+    private String picUrl;
+    @Column(name = "sort")
+    private Integer sort;
     @Column(name = "gmt_create")
     private Date gmtCreate;
     @Column(name = "gmt_modify")
     private Date gmtModify;
+    @Column(name = "disabled")
+    private Boolean disabled;
 
 }

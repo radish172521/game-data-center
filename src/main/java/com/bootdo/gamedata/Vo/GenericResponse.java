@@ -1,4 +1,4 @@
-package com.bootdo.gamedata.Vo;
+package com.bootdo.gamedata.vo;
 
 
 /**
