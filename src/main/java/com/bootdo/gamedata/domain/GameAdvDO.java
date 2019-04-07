@@ -18,6 +18,8 @@ public class GameAdvDO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "adv_channel_id")
+    private String advChannelId;
     @Column(name = "adv_name")
     private String advName;
     @Column(name = "pic_url")
@@ -28,7 +30,29 @@ public class GameAdvDO {
     private Date gmtCreate;
     @Column(name = "gmt_modify")
     private Date gmtModify;
-    @Column(name = "disabled")
-    private Boolean disabled;
+    @Column(name = "enabled")
+    private Integer enabled;
+    /**
+     * 点击量
+     */
+    @Column(name = "click_count")
+    private Integer clickCount;
 
+    /**
+     * 授权量
+     */
+    @Column(name = "accredit_count")
+    private Integer accreditCount;
+
+    /**
+     * 今天Uv
+     */
+    @Transient
+    private Integer uvCount;
+
+    /**
+     * 昨天uv
+     */
+    @Transient
+    private Integer uvCountYest;
 }

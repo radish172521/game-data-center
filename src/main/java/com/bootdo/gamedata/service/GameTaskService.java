@@ -1,21 +1,24 @@
 package com.bootdo.gamedata.service;
 
 import com.bootdo.gamedata.domain.GameTaskDO;
+import com.bootdo.gamedata.qo.GameTaskQo;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
-import java.util.Map;
 
 public interface GameTaskService {
 
-    GameTaskDO get(Long id);
+    void saveGameTask(GameTaskDO gameTaskDO);
 
-    List<GameTaskDO> list(Map<String, Object> map);
+    GameTaskDO getById(Integer id);
 
-    int count(Map<String, Object> map);
+    void deleteGameTask(Integer taskId);
 
-    int save(GameTaskDO gameTaskDO);
+    Page<GameTaskDO> findPage(GameTaskQo qo, Pageable pageable);
 
-    int update(GameTaskDO gameTaskDO);
-
-    int remove(Long id);
+    /**
+     * ===============================小游戏端接口====================================================
+     */
+    void doTask(Integer userId, Integer taskId);
 }

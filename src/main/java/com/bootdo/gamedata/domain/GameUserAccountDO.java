@@ -11,7 +11,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "gm_user_account")
+@Table(name="gm_user_account")
 public class GameUserAccountDO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

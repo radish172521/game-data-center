@@ -226,9 +226,9 @@ public class GenUtils {
                     + "appjs" + File.separator + packageName + File.separator + classname + File.separator + classname + ".js";
             //		+ "modules" + File.separator + "generator" + File.separator + className.toLowerCase() + ".js";
         }
-        if (template.contains("add.js.vm")) {
+        if (template.contains("eg-add.js.vm")) {
             return "main" + File.separator + "resources" + File.separator + "static" + File.separator + "js" + File.separator
-                    + "appjs" + File.separator + packageName + File.separator + classname + File.separator + "add.js";
+                    + "appjs" + File.separator + packageName + File.separator + classname + File.separator + "eg-add.js";
         }
         if (template.contains("edit.js.vm")) {
             return "main" + File.separator + "resources" + File.separator + "static" + File.separator + "js" + File.separator

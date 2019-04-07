@@ -6,14 +6,19 @@ import java.util.List;
 /**
  * @Author bootdo 1992lcg@163.com
  */
-public class  PageUtils implements Serializable {
+public class  PageUtils<T> implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int total;
-	private List<?> rows;
+	private List<T> rows;
 
-	public PageUtils(List<?> list, int total) {
+	public PageUtils(List<T> list, int total) {
 		this.rows = list;
 		this.total = total;
+	}
+
+	public PageUtils(List<T> list, Long total) {
+		this.rows = list;
+		this.total = Math.toIntExact(total);
 	}
 
 	public int getTotal() {
@@ -24,11 +29,11 @@ public class  PageUtils implements Serializable {
 		this.total = total;
 	}
 
-	public List<?> getRows() {
+	public List<T> getRows() {
 		return rows;
 	}
 
-	public void setRows(List<?> rows) {
+	public void setRows(List<T> rows) {
 		this.rows = rows;
 	}
 

@@ -29,8 +29,8 @@ public class ExchangeGoodsDO {
     private Date gmtCreate;
     @Column(name = "gmt_modify")
     private Date gmtModify;
-    @Column(name = "goods_disable")
-    private Boolean goodsDisable;
+    @Column(name = "enabled")
+    private Integer enabled;
     /**
      * 排序
      */

@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class PageParams {
 
-    private Integer page;
-    private Integer size;
+    private Integer limit;
+    private Integer offset;
+    private String order;
 }

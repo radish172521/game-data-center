@@ -7,10 +7,9 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-public class GoodsRequest {
-    private Integer id;
+public class GameExchangeGoodsVo {
     private String goodsName;
     private BigDecimal goodsPrice;
     private String goodsPictureUrl;
-    private Boolean goodsDisabled;
+    private Integer sort;
 }

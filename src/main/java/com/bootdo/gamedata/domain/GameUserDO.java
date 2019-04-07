@@ -37,4 +37,7 @@ public class GameUserDO implements Serializable {
     @Column(name = "gmt_modify")
     private Date gmtModify;
 
+    @Transient
+    private GameUserAccountDO gameUserAccountDO;
+
 }

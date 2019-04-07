@@ -1,17 +1,8 @@
 package com.bootdo.gamedata.dao;
 
-import org.apache.ibatis.annotations.Mapper;
+import com.bootdo.gamedata.domain.GameTaskDO;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import java.util.List;
-import java.util.Map;
-
-@Mapper
-public interface GameTaskDao {
-    GameTaskDao get(Long userId);
-
-    GameTaskDao getByOpenId(Long openId);
-
-    List<GameTaskDao> list(Map<String, Object> map);
-
-    int count(Map<String, Object> map);
+public interface GameTaskDao extends JpaRepository<GameTaskDO, Integer>, JpaSpecificationExecutor<GameTaskDO> {
 }
