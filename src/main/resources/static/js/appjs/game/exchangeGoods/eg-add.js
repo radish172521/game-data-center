@@ -46,6 +46,10 @@ function validateRule() {
                 required: true,
                 number: true
             },
+            inventory: {
+                required: true,
+                digits: true
+            },
             goodsPictureUrl: {
                 required: true
             },
@@ -64,12 +68,16 @@ function validateRule() {
                 required: icon + "请输入兑换价格",
                 number: icon + "兑换价格必须为数字"
             },
+            inventory: {
+                required: icon + "请输入库存",
+                number: icon + "库存必须为整数"
+            },
             goodsPictureUrl: {
                 required: icon + "请选择图片"
             },
             goodsDisable: {
                 required: icon + "状态不能为空"
-            },sort:{
+            }, sort: {
                 digits: icon + "必须输入整数"
             }
         }

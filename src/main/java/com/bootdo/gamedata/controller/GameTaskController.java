@@ -1,12 +1,12 @@
 package com.bootdo.gamedata.controller;
 
 import com.bootdo.common.annotation.Log;
-import com.bootdo.common.config.BootdoConfig;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.R;
 import com.bootdo.gamedata.domain.GameTaskDO;
 import com.bootdo.gamedata.qo.GameTaskQo;
 import com.bootdo.gamedata.service.GameTaskService;
+import com.bootdo.gamedata.vo.GameTaskVo;
 import com.bootdo.gamedata.vo.PageParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -60,8 +60,8 @@ public class GameTaskController {
 //    @RequiresPermissions("sys:role:add")
     @PostMapping("/saveTask")
     @ResponseBody
-    public R saveTask(GameTaskDO gameTaskDO) {
-        gameTaskService.saveGameTask(gameTaskDO);
+    public R saveTask(GameTaskVo request) {
+        gameTaskService.saveGameTask(request);
         return R.ok();
     }
 

@@ -44,16 +44,40 @@ function load() {
                 columns: [
                     { // 列配置项
                         // 数据类型，详细参数配置参见文档http://bootstrap-table.wenzhixin.net.cn/zh-cn/documentation/
-                        checkbox: true
+                        checkbox: false
                         // 列表中显示复选框
                     },
                     {
-                        field: 'id', // 列字段名
-                        title: '序号' // 列标题
+                        field: 'taskConstantKey', // 列字段名
+                        title: '任务约定的唯一key' // 列标题
                     },
                     {
                         field: 'gameTaskName',
                         title: '游戏任务名'
+                    },
+                    {
+                        field: 'rewardDrawTimes',
+                        title: '奖励抽奖次数'
+                    },
+                    {
+                        field: 'rewardIntegralMin',
+                        title: '奖励积分至少为'
+                    },
+                    {
+                        field: 'rewardIntegralMax',
+                        title: '奖励积分至多为'
+                    },
+                    {
+                        field: 'enabledTimesRule',
+                        title: '是否开启次数规则',
+                        align: 'center',
+                        formatter: function (value, row, index) {
+                            if (value == 1) {
+                                return '<span class="label label-primary">开启</span>';
+                            } else if (value == 0) {
+                                return '<span class="label label-danger">关闭</span>';
+                            }
+                        }
                     },
                     {
                         field: 'gameTaskType',
@@ -63,37 +87,13 @@ function load() {
                             if (value === 'VIDEO') {
                                 return '看视频';
                             } else if (value === 'PLAY_GAME') {
-                                return '玩游戏'
-                            } else if (value === 'SIGNED') {
-                                return '签到';
-                            } else if (value === 'SHARE') {
+                                return '跳转'
+                            }  else if (value === 'SHARE') {
                                 return '分享';
                             } else {
                                 return '-';
                             }
                         }
-                    },
-                    {
-                        field: 'gameTaskRewardType',
-                        title: '游戏奖励类型',
-                        align: 'center',
-                        formatter: function (value, row, index) {
-                            if (value === 'DIAMOND') {
-                                return '宝石任务';
-                            } else if (value === 'COIN') {
-                                return '金币任务'
-                            } else {
-                                return '-';
-                            }
-                        }
-                    },
-                    {
-                        field: 'rewardCount',
-                        title: '奖励数量'
-                    },
-                    {
-                        field: 'rewardMultiple',
-                        title: '奖励倍数'
                     },
                     {
                         field: 'gmtCreate',

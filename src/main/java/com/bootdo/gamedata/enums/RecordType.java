@@ -12,5 +12,9 @@ public enum RecordType {
     /**
      * 游戏K金商城兑换记录
      */
-    EXCHANGE;
+    EXCHANGE,
+    /**
+     * 签到
+     */
+    SIGN;
 }

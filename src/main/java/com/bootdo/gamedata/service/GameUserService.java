@@ -8,7 +8,6 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface GameUserService {
-    void saveGameUser(GameUserDO gameUserDO);
 
     GameUserDO getById(Integer id);
 
@@ -16,5 +15,10 @@ public interface GameUserService {
 
     Page<GameUserDO> findPage(GameUserQo qo, Pageable pageable);
 
-    List<GameUserDO> listTask();
+    /**
+     * ==============================小游戏端接口==========================================
+     */
+
+    void addGameUser(GameUserDO gameUserDO);
+
 }

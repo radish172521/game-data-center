@@ -11,12 +11,15 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name="gm_user_account")
+@Table(name = "gm_user_account")
 public class GameUserAccountDO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Integer userId;
+
+    @Column(name = "open_id")
+    private String openId;
 
     /**
      * 游戏用户宝石数量
@@ -35,21 +38,8 @@ public class GameUserAccountDO implements Serializable {
     @Column(name = "score")
     private BigDecimal score;
 
-    /**
-     * 游戏道具数统计
-     */
-    @Column(name = "tools_count1")
-    private Integer toolsCount1;
-
-    @Column(name = "tools_count2")
-    private Integer toolsCount2;
-
-    @Column(name = "tools_count3")
-    private Integer toolsCount3;
-
-    @Column(name = "tools_count4")
-    private Integer toolsCount4;
-
+    @Column(name = "signed_time")
+    private Date signedTime;
     /**
      * 抽奖次数
      */

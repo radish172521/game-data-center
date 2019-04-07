@@ -60,6 +60,10 @@ function load() {
                         title: '价格'
                     },
                     {
+                        field: 'inventory',
+                        title: '库存'
+                    },
+                    {
                         field: 'goodsPictureUrl',
                         title: '图片',
                         align: 'center',
@@ -118,7 +122,7 @@ function add() {
     // iframe层
     layer.open({
         type: 2,
-        title: '添加角色',
+        title: '添加商品',
         maxmin: true,
         shadeClose: false, // 点击遮罩关闭层
         area: ['800px', '520px'],
@@ -152,7 +156,7 @@ function remove(id) {
 function edit(id) {
     layer.open({
         type: 2,
-        title: '角色修改',
+        title: '商品修改',
         maxmin: true,
         shadeClose: true, // 点击遮罩关闭层
         area: ['800px', '520px'],

@@ -49,26 +49,20 @@ public class GameUserRecordServiceImpl implements GameUserRecordService {
         GameUserRecordDO userDrawRecordDO = new GameUserRecordDO();
         if (RecordType.TASK.equals(request.getRecordType())) {
             GameTaskDO gameTaskDO = gameTaskDao.getOne(request.getBusinessId());
-            if (gameTaskDO != null) {
-                userDrawRecordDO.setBusinessName(gameTaskDO.getGameTaskName());
-                userDrawRecordDO.setBusinessId(gameTaskDO.getId());
-                GameTaskInfoDto gameTaskInfoDto = new GameTaskInfoDto(gameTaskDO);
-                userDrawRecordDO.setData(JSONObject.toJSONString(gameTaskInfoDto));
-            }
+            userDrawRecordDO.setBusinessName(gameTaskDO.getGameTaskName());
+            userDrawRecordDO.setBusinessId(gameTaskDO.getId());
+//                GameTaskInfoDto gameTaskInfoDto = new GameTaskInfoDto(gameTaskDO);
+//                userDrawRecordDO.setData(JSONObject.toJSONString(gameTaskInfoDto));
         } else if (RecordType.DRAW.equals(request.getRecordType())) {
             GameDrawDO gameDrawDO = gameDrawDao.getOne(request.getBusinessId());
-            if (gameDrawDO != null) {
-                userDrawRecordDO.setBusinessName(gameDrawDO.getDrawName());
-                userDrawRecordDO.setBusinessId(gameDrawDO.getId());
-            } else {
-                throw new RuntimeException("对应的任务或用户不存在!");
-            }
+            userDrawRecordDO.setBusinessName(gameDrawDO.getDrawName());
+            userDrawRecordDO.setBusinessId(gameDrawDO.getId());
         } else if (RecordType.EXCHANGE.equals(request.getRecordType())) {
             ExchangeGoodsDO exchangeGoodsDO = exchangeGoodsDao.getOne(request.getBusinessId());
-            if (exchangeGoodsDO != null) {
-                userDrawRecordDO.setBusinessId(exchangeGoodsDO.getId());
-                userDrawRecordDO.setBusinessName(exchangeGoodsDO.getGoodsName());
-            }
+            userDrawRecordDO.setBusinessId(exchangeGoodsDO.getId());
+            userDrawRecordDO.setBusinessName(exchangeGoodsDO.getGoodsName());
+        } else if(RecordType.SIGN.equals(request.getRecordType())){
+            userDrawRecordDO.setBusinessName("用户签到");
         } else {
             //不作处理
             throw new RuntimeException("找不到对应的类型!");

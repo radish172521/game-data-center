@@ -1,6 +1,5 @@
 package com.bootdo.gamedata.domain;
 
-import com.bootdo.common.gameenum.GameTaskType;
 import com.bootdo.gamedata.dto.GameTaskInfoDto;
 import com.bootdo.gamedata.enums.RecordType;
 import lombok.Getter;

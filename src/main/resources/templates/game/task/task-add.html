@@ -14,6 +14,13 @@
                     <form class="form-horizontal m-t" id="signupForm" enctype="multipart/form-data">
                         <input id="id" name="id" type="hidden">
                         <div class="form-group">
+                            <label class="col-sm-3 control-label">任务约定的唯一key：</label>
+                            <div class="col-sm-8">
+                                <input id="taskConstantKey" name="taskConstantKey" class="form-control"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-sm-3 control-label">游戏任务名：</label>
                             <div class="col-sm-8">
                                 <input id="gameTaskName" name="gameTaskName" class="form-control"
@@ -21,59 +28,145 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-sm-3 control-label">奖励抽奖次数：</label>
+                            <div class="col-sm-8">
+                                <input id="rewardDrawTimes" name="rewardDrawTimes" class="form-control"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">奖励积分范围：</label>
+                            <div class="col-sm-4">
+                                <input id="rewardIntegralMin" name="rewardIntegralMin" class="form-control"
+                                       type="text">
+                            </div>
+                            -
+                            <div class="col-sm-4">
+                                <input id="rewardIntegralMax" name="rewardIntegralMax" class="form-control"
+                                       type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">是否开启任务次数规则：</label>
+                            <div class="col-sm-8">
+                                <label class="radio-inline"> <input type="radio"
+                                                                    name="enabledTimesRule" value="1"/> 是
+                                </label>
+                                <label class="radio-inline"> <input type="radio"
+                                                                    name="enabledTimesRule" value="0" checked/> 否
+                                </label>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group" id="gameTaskTypeDiv">
                             <label class="col-sm-3 control-label">游戏任务类型：</label>
                             <div class="col-sm-8">
                                 <label class="radio-inline"> <input type="radio"
                                                                     name="gameTaskType" value="VIDEO"/> 看视频
                                 </label>
                                 <label class="radio-inline"> <input type="radio"
-                                                                    name="gameTaskType" value="PLAY_GAME"/> 玩游戏
+                                                                    name="gameTaskType" value="PLAY_GAME"/> 跳转
                                 </label>
-                                <label class="radio-inline"> <input type="radio"
-                                                                    name="gameTaskType" value="SIGNED"/> 签到
                                 </label>
                                 <label class="radio-inline"> <input type="radio"
                                                                     name="gameTaskType" value="SHARE"/> 分享
                                 </label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">游戏奖励类型：</label>
-                            <div class="col-sm-8">
-                                <label class="radio-inline"> <input type="radio"
-                                                                    name="gameTaskRewardType" value="DIAMOND"/> 宝石
-                                </label>
-                                <label class="radio-inline"> <input type="radio"
-                                                                    name="gameTaskRewardType" value="COIN"/> 金币
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">奖励数量：</label>
-                            <div class="col-sm-8">
-                                <input id="rewardCount" name="rewardCount" class="form-control"
-                                       type="text">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">奖励倍数：</label>
-                            <div class="col-sm-8">
-                                <input id="rewardMultiple" name="rewardMultiple" class="form-control"
-                                       type="text">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">是否奖励抽奖次数：</label>
-                            <div class="switch  col-sm-1">
-                                <div class="onoffswitch">
-                                    <div class="onoffswitch">
-                                        <input id="rewardDrawTimes" name="rewardDrawTimes" type="checkbox"
-                                               value="1"  class="onoffswitch-checkbox" >
-                                        <label class="onoffswitch-label" for="rewardDrawTimes"> <span
-                                                class="onoffswitch-inner"></span> <span
-                                                class="onoffswitch-switch"></span>
+                        <div id="gameRuleDiv">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">奖励规则：</label>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-1">第</div>
+                                    <div class="col-sm-2"><input id="times1" name="times1" class="form-control"
+                                                                 type="text"></div>
+                                    <div class="col-sm-3">次,任务类型为:</div>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType1"
+                                                                            value="VIDEO"> 看视频
                                         </label>
-                                    </div>
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType1"
+                                                                            value="PLAY_GAME"> 跳转
+                                        </label>
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType1"
+                                                                            value="SHARE"> 分享
+                                        </label></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-1">第</div>
+                                    <div class="col-sm-2"><input id="times2" name="times2" class="form-control"
+                                                                 type="text"></div>
+                                    <div class="col-sm-3">次,任务类型为:</div>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType2"
+                                                                            value="VIDEO"> 看视频
+                                        </label>
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType2"
+                                                                            value="PLAY_GAME"> 跳转
+                                        </label>
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType2"
+                                                                            value="SHARE"> 分享
+                                        </label></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-1">第</div>
+                                    <div class="col-sm-2"><input id="times3" name="times3" class="form-control"
+                                                                 type="text"></div>
+                                    <div class="col-sm-3">次,任务类型为:</div>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType3"
+                                                                            value="VIDEO"> 看视频
+                                        </label>
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType3"
+                                                                            value="PLAY_GAME"> 跳转
+                                        </label>
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType3"
+                                                                            value="SHARE"> 分享
+                                        </label></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-1">第</div>
+                                    <div class="col-sm-2"><input id="times4" name="times4" class="form-control"
+                                                                 type="text"></div>
+                                    <div class="col-sm-3">次,任务类型为:</div>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType4"
+                                                                            value="VIDEO"> 看视频
+                                        </label>
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType4"
+                                                                            value="PLAY_GAME"> 跳转
+                                        </label>
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType4"
+                                                                            value="SHARE"> 分享
+                                        </label></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-9">
+                                    <div class="col-sm-1">第</div>
+                                    <div class="col-sm-2"><input id="times5" name="times5" class="form-control"
+                                                                 type="text"></div>
+                                    <div class="col-sm-3">次,任务类型为:</div>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType5"
+                                                                            value="VIDEO"> 看视频
+                                        </label>
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType5"
+                                                                            value="PLAY_GAME"> 跳转
+                                        </label>
+                                        <label class="radio-inline"> <input type="radio" name="gameTaskType5"
+                                                                            value="SHARE"> 分享
+                                        </label></div>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +176,7 @@
                                 <div class="onoffswitch">
                                     <div class="onoffswitch">
                                         <input id="enabled" name="enabled" type="checkbox"
-                                               value="1"  class="onoffswitch-checkbox" >
+                                               value="1" class="onoffswitch-checkbox">
                                         <label class="onoffswitch-label" for="enabled"> <span
                                                 class="onoffswitch-inner"></span> <span
                                                 class="onoffswitch-switch"></span>

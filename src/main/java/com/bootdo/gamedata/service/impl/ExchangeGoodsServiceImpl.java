@@ -76,9 +76,14 @@ public class ExchangeGoodsServiceImpl implements ExchangeGoodsService {
         GameUserAccountDO userDO = gameUserAccountDao.getOne(userId);
         ExchangeGoodsDO exchangeGoodsDO = exchangeGoodsDao.getOne(goodsId);
         if (userDO != null && exchangeGoodsDO != null) {
+            if (exchangeGoodsDO.getInventory() == null || exchangeGoodsDO.getInventory() <= 0) {
+                throw new RuntimeException("该商品已经没有库存啦,下次再来吧");
+            }
             if (userDO.getCoinCount().min(exchangeGoodsDO.getGoodsPrice()).compareTo(BigDecimal.ZERO) >= 0) {
                 userDO.setCoinCount(userDO.getCoinCount().min(exchangeGoodsDO.getGoodsPrice()));
                 gameUserAccountDao.save(userDO);
+
+                exchangeGoodsDO.setInventory(exchangeGoodsDO.getInventory() - 1);
 
                 GameUserRecordDO gameUserRecordDO = new GameUserRecordDO();
                 gameUserRecordDO.setGameUserId(userId);

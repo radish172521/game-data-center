@@ -6,7 +6,16 @@ $.validator.setDefaults({
         update();
     }
 });
-
+$('input[type=radio][name=enabledTimesRule]').change(function(){
+    var val = $(this).val();
+    if(val == 1){
+        $("#gameRuleDiv").show();
+        $("#gameTaskTypeDiv").hide();
+    }else if(val == 0){
+        $("#gameTaskTypeDiv").show();
+        $("#gameRuleDiv").hide();
+    }
+});
 
 function update() {
     var params = new FormData($('#signupForm')[0]);
@@ -39,25 +48,25 @@ function validateRule() {
     var icon = "<i class='fa fa-times-circle'></i> ";
     $("#signupForm").validate({
         rules: {
+            taskConstantKey: {
+                required: true
+            },
             gameTaskName: {
                 required: true
             },
-            gameTaskType: {
-                required: true
+            rewardDrawTimes: {
+                digits: true
             },
-            gameTaskRewardType: {
-                required: true
+            rewardIntegralMin: {
+                number: true
             },
-            rewardCount: {
-                required: true
+            rewardIntegralMax: {
+                number: true
             },
-            rewardMultiple: {
+            enabledTimesRule: {
                 required: true
             },
             disabled: {
-                required: true
-            },
-            rewardDrawTimes: {
                 required: true
             }
         },
@@ -65,23 +74,23 @@ function validateRule() {
             gameTaskName: {
                 required: icon + "请输入游戏任务名"
             },
-            gameTaskType: {
-                required: icon + "请选择游戏类型"
-            },
-            gameTaskRewardType: {
-                required: icon + "请选择游戏奖励类型"
-            },
-            rewardCount: {
-                required: icon + "请输入游戏奖励数量"
-            },
-            rewardMultiple: {
-                required: icon + "请输入游戏奖励倍数"
-            },
-            disabled: {
-                required: icon + "请选择任务状态"
+            taskConstantKey: {
+                required: icon + "请输入游戏任务约定Key"
             },
             rewardDrawTimes: {
-                required: icon + "请选择是否奖励抽奖次数"
+                digits: icon + "奖励抽奖次数必须为整数"
+            },
+            rewardIntegralMin: {
+                number: icon + "请输入至少奖励多少积分"
+            },
+            rewardIntegralMax: {
+                number: icon + "请输入至多奖励多少积分"
+            },
+            enabledTimesRule: {
+                required: icon + "请选择开启任务次数规则"
+            },
+            disabled: {
+                required: icon + "请选择启用状态"
             }
 
         }

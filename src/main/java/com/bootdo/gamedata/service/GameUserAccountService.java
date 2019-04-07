@@ -23,7 +23,7 @@ public interface GameUserAccountService {
     void addDrawCount(Integer userId);
 
     /**
-     * 消耗抽奖次数
+     * 消耗抽奖次数,执行抽奖
      * @param userId
      */
     void consumeDrawCount(Integer userId);
@@ -34,4 +34,9 @@ public interface GameUserAccountService {
      * @return
      */
     GameUserAccountVo getVoById(Integer userId);
+
+    /**
+     * 用户签单接口
+     */
+    void signed(Integer userId);
 }

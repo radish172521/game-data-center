@@ -36,5 +36,10 @@ public class ExchangeGoodsDO {
      */
     @Column(name = "sort")
     private Integer sort;
+    /**
+     * 库存
+     */
+    @Column(name = "inventory")
+    private Integer inventory;
 
 }

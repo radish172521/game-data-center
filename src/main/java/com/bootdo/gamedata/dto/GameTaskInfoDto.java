@@ -28,9 +28,9 @@ public class GameTaskInfoDto {
      */
     private BigDecimal rewardCount;
 
-    public GameTaskInfoDto(GameTaskDO gameTaskDO){
-        this.gameTaskType = gameTaskDO.getGameTaskType();
-        this.gameTaskRewardType = gameTaskDO.getGameTaskRewardType();
-        this.rewardCount = gameTaskDO.getRewardCount();
-    }
+//    public GameTaskInfoDto(GameTaskDO gameTaskDO){
+//        this.gameTaskType = gameTaskDO.getGameTaskType();
+//        this.gameTaskRewardType = gameTaskDO.getGameTaskRewardType();
+//        this.rewardCount = gameTaskDO.getRewardCount();
+//    }
 }

@@ -3,6 +3,7 @@ package com.bootdo.gamedata.vo;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import java.math.BigDecimal;
 
 @Getter
@@ -24,19 +25,11 @@ public class GameUserAccountVo {
      */
     private BigDecimal score;
 
-    /**
-     * 游戏道具数统计
-     */
-    private Integer toolsCount1;
-
-    private Integer toolsCount2;
-
-    private Integer toolsCount3;
-
-    private Integer toolsCount4;
 
     /**
      * 抽奖次数
      */
     private Integer drawCount;
+
+    private Boolean signed;
 }

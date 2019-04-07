@@ -2,14 +2,15 @@ package com.bootdo.gamedata.service;
 
 import com.bootdo.gamedata.domain.GameTaskDO;
 import com.bootdo.gamedata.qo.GameTaskQo;
+import com.bootdo.gamedata.vo.GameTaskVo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
+import java.util.Map;
 
 public interface GameTaskService {
 
-    void saveGameTask(GameTaskDO gameTaskDO);
+    void saveGameTask(GameTaskVo request);
 
     GameTaskDO getById(Integer id);
 
@@ -20,5 +21,7 @@ public interface GameTaskService {
     /**
      * ===============================小游戏端接口====================================================
      */
-    void doTask(Integer userId, Integer taskId);
+    void doTask(Integer userId, String taskKey);
+
+    Map<String, Object> checkUserTask(Integer userId, String taskKey);
 }

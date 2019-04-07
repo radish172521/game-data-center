@@ -17,7 +17,7 @@ public class GameUserDO implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "user_id")
     private Integer id;
 
     @Column(name = "openId")
@@ -34,6 +34,7 @@ public class GameUserDO implements Serializable {
 
     @Column(name = "gmt_create")
     private Date gmtCreate;
+
     @Column(name = "gmt_modify")
     private Date gmtModify;
 
