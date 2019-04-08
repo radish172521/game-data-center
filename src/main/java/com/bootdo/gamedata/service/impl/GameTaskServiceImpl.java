@@ -176,23 +176,25 @@ public class GameTaskServiceImpl implements GameTaskService {
                     doTaskCount = relationDO.getTodayTaskCount();
                 }
                 List<GameTaskRuleDO> gameTaskRuleDOS = gameTaskDO.getRuleDOList();
-                int index = 0, size = gameTaskRuleDOS.size();
-                for (GameTaskRuleDO taskRuleDO : gameTaskRuleDOS) {
-                    if (index == 0) {
-                        if (doTaskCount <= taskRuleDO.getTimes()) {
-                            result.put("taskType", taskRuleDO.getGameTaskType());
-                            break;
+                if(gameTaskRuleDOS != null && gameTaskRuleDOS.size() >0){
+                    int index = 0, size = gameTaskRuleDOS.size();
+                    for (GameTaskRuleDO taskRuleDO : gameTaskRuleDOS) {
+                        if (index == 0) {
+                            if (doTaskCount <= taskRuleDO.getTimes()) {
+                                result.put("taskType", taskRuleDO.getGameTaskType());
+                                break;
+                            }
+                        } else {
+                            if (doTaskCount >= gameTaskRuleDOS.get(index - 1).getTimes() && doTaskCount < taskRuleDO.getTimes()) {
+                                result.put("taskType", taskRuleDO.getGameTaskType());
+                                break;
+                            }
                         }
-                    } else {
-                        if (doTaskCount >= gameTaskRuleDOS.get(index - 1).getTimes() && doTaskCount < taskRuleDO.getTimes()) {
-                            result.put("taskType", taskRuleDO.getGameTaskType());
-                            break;
-                        }
+                        index++;
                     }
-                    index++;
+                    result.put("doTaskCount", doTaskCount);
+                    result.computeIfAbsent("taskType", k -> gameTaskRuleDOS.get(size - 1).getGameTaskType());
                 }
-                result.put("doTaskCount", doTaskCount);
-                result.computeIfAbsent("taskType", k -> gameTaskRuleDOS.get(size - 1).getGameTaskType());
             }
         }
         return result;
